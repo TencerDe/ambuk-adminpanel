@@ -1,0 +1,10 @@
+asgiref
+Django
+djangorestframework
+numpy
+opencv-python
+psycopg
+psycopg2-binary
+python-dotenv
+sqlparse
+tzdata
