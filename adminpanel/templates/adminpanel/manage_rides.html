@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{% static 'css/global.css' %}">
+
+    <title>Manage Rides</title>
+</head>
+<body>
+    <h1>Manage Rides</h1>
+    <ul>
+        {% for ride in rides %}
+            <li>{{ ride.name }} - {{ ride.hospital.name }} - {{ ride.status }}</li>
+        {% endfor %}
+    </ul>
+
+    <ul>
+        {% for ride in rides %}
+            <li>{{ ride.name }} - {{ ride.status }} 
+                <a href="{% url 'edit_ride' ride.id %}">Edit</a>
+            </li>
+        {% endfor %}
+    </ul>
+
+    <ul>
+        {% for ride in rides %}
+            <li>{{ ride.name }} - {{ ride.status }} 
+                <a href="{% url 'edit_ride' ride.id %}">Edit</a> |
+                <a href="{% url 'delete_ride' ride.id %}" style="color: red;">Delete</a>
+            </li>
+        {% endfor %}
+    </ul>
+
+    <ul>
+        {% for ride in rides %}
+            <li>{{ ride.name }} - {{ ride.status }} 
+                <a href="{% url 'edit_ride' ride.id %}">Edit</a> |
+                <a href="{% url 'delete_ride' ride.id %}" style="color: red;">Delete</a>
+            </li>
+        {% endfor %}
+    </ul>
+
+    <a href="{% url 'custom_admin:admin_dashboard' %}">Back to Dashboard</a>
+    <a href="{% url 'custom_admin:add_ride' %}">➕ Add New Ride</a>
+</body>
+</html>

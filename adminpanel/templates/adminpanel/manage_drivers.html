@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{% static 'css/global.css' %}">
+
+    <title>Manage Drivers</title>
+</head>
+<body>
+    <h1>Manage Drivers</h1>
+    <ul>
+        {% for driver in drivers %}
+            <li>{{ driver.name }} - {% if driver.is_available %} Available {% else %} Busy {% endif %}</li>
+        {% endfor %}
+    </ul>
+
+    <ul>
+        {% for driver in drivers %}
+            <li>{{ driver.name }} - {% if driver.is_available %} Available {% else %} Busy {% endif %} 
+                <a href="{% url 'custom_admin:edit_driver' driver.id %}">Edit</a>
+            </li>
+        {% endfor %}
+    </ul>
+
+    <ul>
+        {% for driver in drivers %}
+            <li>{{ driver.name }} - {% if driver.is_available %} Available {% else %} Busy {% endif %}|
+                <a href="{% url 'custom_admin:delete_driver' driver.id %}" style="color: red;">Delete</a>
+            </li>
+        {% endfor %}
+    </ul>
+    
+    <ul>
+        {% for driver in drivers %}
+            <li>{{ driver.name }} - {% if driver.is_available %} Available {% else %} Busy {% endif %}|
+            </li>
+        {% endfor %}
+    </ul>
+
+    <a href="{% url 'custom_admin:add_driver' %}">➕ Add New Driver</a>
+    <a href="{% url 'custom_admin:admin_dashboard' %}">Back to Dashboard</a>
+</body>
+</html>

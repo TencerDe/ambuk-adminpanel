@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{% static 'css/global.css' %}">
+
+    <title>Manage Hospitals</title>
+</head>
+<body>
+    <h1>Manage Hospitals</h1>
+    <ul>
+        {% for hospital in hospitals %}
+            <li>{{ hospital.name }} - {{ hospital.location }}</li>
+        {% endfor %}
+    </ul>
+
+    <ul>
+        {% for hospital in hospitals %}
+            <li>{{ hospital.name }} - {{ hospital.location }} 
+                <a href="{% url 'edit_hospital' hospital.id %}">Edit</a>
+            </li>
+        {% endfor %}
+    </ul>
+
+    <ul>
+        {% for hospital in hospitals %}
+            <li>{{ hospital.name }} - {{ hospital.location }} 
+                <a href="{% url 'edit_hospital' hospital.id %}">Edit</a> |
+                <a href="{% url 'delete_hospital' hospital.id %}" style="color: red;">Delete</a>
+            </li>
+        {% endfor %}
+    </ul>    
+
+    <ul>
+        {% for hospital in hospitals %}
+            <li>{{ hospital.name }} - {{ hospital.location }} 
+                <a href="{% url 'edit_hospital' hospital.id %}">Edit</a> |
+                <a href="{% url 'delete_hospital' hospital.id %}" style="color: red;">Delete</a>
+            </li>
+        {% endfor %}
+    </ul>
+    
+
+    <a href="{% url 'custom_admin:add_hospital' %}">➕ Add New Hospital</a>
+    <a href="{% url 'custom_admin:admin_dashboard' %}">Back to Dashboard</a>
+</body>
+</html>

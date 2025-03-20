@@ -1,0 +1,19 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{% static 'css/global.css' %}">
+
+    <title>Admin Dashboard</title>
+</head>
+<body>
+    <h1>Admin Dashboard</h1>
+    <p>Total Rides: {{ total_rides }}</p>
+    <p>Total Drivers: {{ total_drivers }}</p>
+    <p>Total Hospitals: {{ total_hospitals }}</p>
+
+    <a href="{% url 'custom_admin:manage_rides' %}">Manage Rides</a> |
+    <a href="{% url 'custom_admin:manage_drivers' %}">Manage Drivers</a> |
+    <a href="{% url 'custom_admin:manage_hospitals' %}">Manage Hospitals</a>
+</body>
+</html>

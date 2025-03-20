@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/global.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Driver</title>
+</head>
+<body>
+    <h2>Add a New Driver</h2>
+    
+    <form method="POST">
+        {% csrf_token %}
+        
+        <label for="name">Driver Name:</label>
+        <input type="text" name="name" required><br>
+
+        <label for="phone">Phone Number:</label>
+        <input type="text" name="phone" required><br> <!-- Make sure this input exists -->
+
+        <label for="is_available">Available:</label>
+        <input type="checkbox" name="is_available"><br>
+
+        <button type="submit">Add Driver</button>
+    </form>
+
+</body>
+</html>

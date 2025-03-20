@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/global.css' %}">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login | Ambuk</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h2 class="fade-in">Admin Login</h2>
+        <form method="POST" action="{% url 'custom_admin:admin_login' %}">
+            {% csrf_token %}
+            <input type="text" name="username" placeholder="Username">
+            <input type="password" name="password" placeholder="Password">
+            <button type="submit">Login</button>
+        </form>
+        <p>Don't have an account? <a href="{% url 'custom_admin:admin_signup' %}">Sign up</a></p>
+        <a href="{% url 'home' %}" class="back-link">← Back to Home</a>
+    </div>
+</body>
+</html>
