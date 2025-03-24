@@ -7,4 +7,4 @@ psycopg
 psycopg2-binary
 python-dotenv
 sqlparse
-tzdata
+tzdatacddcd
